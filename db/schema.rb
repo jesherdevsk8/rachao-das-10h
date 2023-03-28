@@ -27,9 +27,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_025222) do
     t.bigint "player_id", null: false
     t.datetime "date"
     t.text "resume"
-    t.boolean "victory"
-    t.boolean "defeat"
-    t.boolean "tied_score"
+    t.boolean "victory", default: false
+    t.boolean "defeat", default: false
+    t.boolean "tied_score", default: false
     t.string "match_score", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -97,3 +97,9 @@ rails db:migrate
 ```bash
 rails g devise:views
 ```
+
+## generate dashboard to extract resume
+
+```bash
+rails g controller api::v1::dashboard
+```
