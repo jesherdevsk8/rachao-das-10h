@@ -5,7 +5,7 @@
 rails new racha -d mysql -T
 ```
 
-## install and config mailcatcher then test it - _config/environments/development.rb_
+## [ install and config mailcatcher then test it config/environments/development.rb ]
 
 ```ruby
 gem install mailcatcher
@@ -42,15 +42,13 @@ mkdir spec/support
 touch spec/support/{factory_bot,shoulda_matchers}.rb
 ```
 
-## [Adicione no arquivo spec/support/factory_bot.rb]
+## [ add in spec/support/factory_bot.rb ]
 ```ruby
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 end
 ```
-## [Adicione em spec/support/shoulda_matchers.rb]
-
-## generate home controller to root controller
+## [ add in spec/support/shoulda_matchers.rb ]
 
 ```ruby
 Shoulda::Matchers.configure do |config|
@@ -60,23 +58,42 @@ Shoulda::Matchers.configure do |config|
   end
 end
 ```
-
-## [Adicione em spec/rails_helper.rb]
+## [ add in spec/rails_helper.rb ]
 
 ```ruby
 require 'rspec/rails'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 ```
+## generate home controller to root controller
+
 
 ```bash
 rails g controller Home index
 ```
 
-- Development Enviroment
+## [ configure devise adding into Gemfile ]
 
-``` ruby
-rails db:create \
-rails db:migrate \
-rails db:seed
+```ruby
+gem 'devise'
+```
+- install
+
+```bash
+bundle install && \
+rails g devise:install
+
+```
+
+- generate user migration
+
+```bash
+rails g devise User
+rails db:migrate
+```
+
+- generate views
+
+```bash
+rails g devise:views
 ```

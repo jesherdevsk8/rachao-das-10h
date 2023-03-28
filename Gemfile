@@ -48,16 +48,17 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'devise'
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'simplecov', require: false
+  # gem 'simplecov', require: false
 end
 
 group :development do
   gem 'pry'
   gem 'pry-byebug'
 end
-
