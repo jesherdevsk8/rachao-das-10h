@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_27_212411) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_025222) do
+  create_table "players", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "nickname"
+    t.string "email", null: false
+    t.date "birthdate"
+    t.integer "shirt_number"
+    t.boolean "active", default: true
+    t.integer "goal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "soccer_matches", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "player_id", null: false
+    t.datetime "date"
+    t.text "resume"
+    t.boolean "victory"
+    t.boolean "defeat"
+    t.boolean "tied_score"
+    t.string "match_score", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_soccer_matches_on_player_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -25,4 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_212411) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "soccer_matches", "players"
 end
