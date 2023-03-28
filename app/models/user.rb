@@ -9,4 +9,6 @@ class User < ApplicationRecord
     with: /\A^[a-z0-9._]+@[a-z0-9]+\.[a-z]{2,3}+(\.[a-z]{2,3})?(\.[a-z]{2})?$\z/,
     message: 'must be a valid email address'
   }
+
+  enum profile: { admin: 0, user: 1 }
 end

@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_025222) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.string "admin", default: "1"
+    t.integer "profile", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
